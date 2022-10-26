@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaController">
+   <children>
+      <Label layoutX="31.0" layoutY="61.0" text="ID" />
+      <Label layoutX="31.0" layoutY="118.0" text="Nome" />
+      <Label layoutX="31.0" layoutY="173.0" text="CPF" />
+      <Label layoutX="31.0" layoutY="241.0" text="Telefone" />
+      <TextField fx:id="txtId" layoutX="113.0" layoutY="57.0" />
+      <TextField fx:id="txtNome" layoutX="114.0" layoutY="114.0" />
+      <TextField fx:id="txtCpf" layoutX="113.0" layoutY="173.0" />
+      <TextField fx:id="txtFone" layoutX="114.0" layoutY="230.0" />
+      <TableView fx:id="tabelaAluno" layoutX="281.0" layoutY="29.0" prefHeight="286.0" prefWidth="461.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="52.79998779296875" text="ID" />
+          <TableColumn fx:id="colNome" prefWidth="119.99993896484375" text="Nome" />
+            <TableColumn fx:id="colCpf" prefWidth="88.79998779296875" text="Cpf" />
+            <TableColumn fx:id="colFone" prefWidth="98.4000244140625" text="Telefone" />
+        </columns>
+      </TableView>
+      <Label fx:id="labelMsg" layoutX="40.0" layoutY="410.0" textFill="#c71010" />
+      <Button layoutX="189.0" layoutY="356.0" mnemonicParsing="false" onAction="#acaoSalvar" text="Salvar" />
+      <Button layoutX="293.0" layoutY="356.0" mnemonicParsing="false" onAction="#acaoBuscar" text="Buscar" />
+      <Button layoutX="386.0" layoutY="356.0" mnemonicParsing="false" onAction="#acaoApagar" text="Apagar" />
+      <Button layoutX="486.0" layoutY="356.0" mnemonicParsing="false" onAction="#acaoLimpar" text="Limpar" />
+      <Button layoutX="583.0" layoutY="356.0" mnemonicParsing="false" onAction="#acaoImprimir" text="Imprimir" />
+   </children>
+</AnchorPane>
