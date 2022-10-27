@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.ControleTelaValidacao">
+   <children>
+      <Label layoutX="51.0" layoutY="56.0" text="Apenas letras maiúsculas" />
+      <Label layoutX="51.0" layoutY="95.0" text="Número inteiro:" />
+      <Label layoutX="53.0" layoutY="130.0" text="Número com vírgula:" />
+      <Label layoutX="52.0" layoutY="169.0" text="Valor monetário:" />
+      <Label layoutX="53.0" layoutY="211.0" text="CPF:" />
+      <Label layoutX="278.0" layoutY="211.0" text="CNPJ:" />
+      <Label layoutX="47.0" layoutY="254.0" text="E-mail:" />
+      <Label layoutX="50.0" layoutY="299.0" text="Fone:" />
+      <Label layoutX="346.0" layoutY="299.0" text="CEP:" />
+      <TextField fx:id="txtLetras" layoutX="238.0" layoutY="52.0" prefHeight="25.0" prefWidth="283.0" />
+      <TextField fx:id="txtInteiro" layoutX="238.0" layoutY="91.0" prefHeight="25.0" prefWidth="283.0" />
+      <TextField fx:id="txtFlutuante" layoutX="238.0" layoutY="126.0" prefHeight="25.0" prefWidth="283.0" />
+      <TextField fx:id="txtMonetario" layoutX="238.0" layoutY="165.0" prefHeight="25.0" prefWidth="283.0" />
+      <TextField fx:id="txtCpf" layoutX="96.0" layoutY="207.0" prefHeight="25.0" prefWidth="148.0" />
+      <TextField fx:id="txtCnpj" layoutX="325.0" layoutY="207.0" prefHeight="25.0" prefWidth="196.0" />
+      <TextField fx:id="txtEmail" layoutX="96.0" layoutY="250.0" prefHeight="25.0" prefWidth="425.0" />
+      <TextField fx:id="txtFone" layoutX="96.0" layoutY="295.0" prefHeight="25.0" prefWidth="175.0" />
+      <TextField fx:id="txtCep" layoutX="389.0" layoutY="295.0" prefHeight="25.0" prefWidth="132.0" />
+      <Button fx:id="btnConfirmar" layoutX="194.0" layoutY="337.0" mnemonicParsing="false" text="Confirmar" />
+      <Button fx:id="btnCancelar" layoutX="338.0" layoutY="337.0" mnemonicParsing="false" text="Cancelar" />
+      <Label fx:id="labelMensagem" layoutX="19.0" layoutY="369.0" prefHeight="17.0" prefWidth="196.0" text="CPF deve conter 11 dígitos válidos" textFill="#ff2323" />
+   </children>
+</AnchorPane>
