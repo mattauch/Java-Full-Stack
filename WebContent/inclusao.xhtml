@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Cadastro de Automoveis</title>
+</h:head>
+
+<header>
+	<IMG src="https://imagensemoldes.com.br/wp-content/uploads/2020/03/Carro-Antigo-Cl%C3%A1ssico-Azul-1280x720.png" style="width:400px; height:300px"/>
+</header>
+<h:body style="background-color: #f0eae9 ">
+	<h1 style="font-style: oblique;">Inclusão de Veículos</h1>
+
+	<h:form>
+		<h:panelGrid columns="2" style="font-size: 20px">
+			Marca: <h:inputText value="#{automovelBean.automovel.marca}"/>
+			Modelo: <h:inputText value="#{automovelBean.automovel.modelo}"/>
+			Ano de Fabricação: <h:inputText value="#{automovelBean.automovel.anoFabricacao}"/>
+			Ano do Modelo: <h:inputText value="#{automovelBean.automovel.anoModelo}"/>
+			Observações: <h:inputText value="#{automovelBean.automovel.observacoes}"/>
+			
+			<h:commandButton style="margin-top: 10px; background:#d3d2e5; border: none; border-radius: 20px; cursor: pointer; font-size: 20px; font-style: oblique" value="Salvar" action="#{automovelBean.salvar(automovelBean.automovel)}"/>
+			<h:commandButton style="margin-top: 10px; background:#d3d2e5; border: none; border-radius: 20px; cursor: pointer; font-size: 20px; font-style: oblique" value="Consultar" action="consulta"/>
+			
+			<h:commandButton style="background:#d3d2e5; border: none; border-radius: 20px; cursor: pointer; font-size: 20px; font-style: oblique" value="Página Principal" action="index"/>
+		
+		</h:panelGrid>
+
+	</h:form>
+
+</h:body>
+</html>

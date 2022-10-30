@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Cadastro de Automoveis</title>
+</h:head>
+
+<header>
+	<IMG src="https://cdn.pixabay.com/photo/2018/03/03/01/27/car-3194699_960_720.png" style="width: 400px; height:200px" />
+</header>
+<h:body style= "background-color: #f0eae9">
+	<h1 style="font-style: oblique;">Consulta e Exclusão de Veículos</h1>
+
+	<h:form style="font-size: 20px">
+		<h:dataTable id="tabAuto" value="#{automovelBean.automoveis}"
+			var="automovel" border="1" style="background: #ecd0df">
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				#{automovel.id}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Marca</f:facet>
+				#{automovel.marca}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Modelo</f:facet>
+				#{automovel.modelo}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Ano de Fabricação</f:facet>
+				#{automovel.anoFabricacao}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Ano do Modelo</f:facet>
+				#{automovel.anoModelo}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Observações</f:facet>
+				#{automovel.observacoes}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Ações</f:facet>
+				<h:commandLink value="Exluir" action="#{automovelBean.excluir(automovel)}"/>
+			</h:column>
+		</h:dataTable>
+		
+		<br/>
+		<h:commandButton style="background:#d3d2e5; border: none; border-radius: 20px; cursor: pointer; font-size: 20px; font-style: oblique; margin-right: 20px" value="Inclusão" action="inclusao"/>
+		<h:commandButton style="background:#d3d2e5; border: none; border-radius: 20px; cursor: pointer; font-size: 20px; font-style: oblique" value="Página Principal" action="index"/>
+
+	</h:form>
+
+
+</h:body>
+</html>
