@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/template/layout.xhtml"
+	xmlns="http://www.w3.org/1999.xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+	<f:metadata>
+		<f:viewAction action="#{consultaClienteMB.consultar}"></f:viewAction>
+	</f:metadata>
+
+	<ui:define name="corpo">
+
+		<h2>Consulta de Clientes</h2>
+		<h:form id="frm">
+
+			<p:messages showDetail="True" showSummary="true" autoUpdate="true"
+				closable="true" />
+
+			<p:dataTable id="relatorio" value="#{consultaClienteMB.clientes}"
+				var="cliente" border="1" callspacing="0" cellpadding="2"
+				paginator="true" rows="5" paginatorPosition="bottom"
+				resizableColumns="true">
+
+				<f:facet name="header">Clientes Cadastrados</f:facet>
+
+				<p:column style="width: 35px" sortBy="#{cliente.id}">
+					<f:facet name="header">ID</f:facet>
+					<h:outputText value="#{cliente.id}" />
+				</p:column>
+
+				<p:column style="width: 60px" exportable="false">
+					<f:facet name="header">Pessoa</f:facet>
+					<h:outputText value="#{cliente.pessoa}" />
+				</p:column>
+
+				<p:column style="width: 200px" sortBy="#{cliente.nome}">
+					<f:facet name="header">Nome</f:facet>
+					<h:outputText value="#{cliente.nome}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">CPF/CNPJ</f:facet>
+					<h:outputText value="#{cliente.cpf_cnpj}" />
+				</p:column>
+
+				<p:column style="width: 200px">
+					<f:facet name="header">E-mail</f:facet>
+					<h:outputText value="#{cliente.email}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">Telefone</f:facet>
+					<h:outputText value="#{cliente.fone}" />
+				</p:column>
+
+				<p:column style="width: 200px" exportable="false">
+					<f:facet name="header">Rua</f:facet>
+					<h:outputText value="#{cliente.rua}" />
+				</p:column>
+
+				<p:column style="width: 100px" exportable="false">
+					<f:facet name="header">Bairro</f:facet>
+					<h:outputText value="#{cliente.bairro}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">Cidade</f:facet>
+					<h:outputText value="#{cliente.cidade}" />
+				</p:column>
+
+				<p:column style="width: 100px">
+					<f:facet name="header">Estado</f:facet>
+					<h:outputText value="#{cliente.estado}" />
+				</p:column>
+
+				<p:column exportable="false">
+					<f:facet name="header">CEP</f:facet>
+					<h:outputText value="#{cliente.cep}" />
+				</p:column>
+
+				<p:column exportable="false">
+					<p:button icon="ui-icon-pencil" title="Editar"
+						outcome="/cadastraCliente">
+						<f:param name="id" value="#{cliente.id}" />
+					</p:button>
+
+					<p:commandButton icon="ui-icon-trash" title="Excluir"
+						action="#{consultaClienteMB.excluir}" process="@this"
+						update="@form">
+						<f:setPropertyActionListener value="#{cliente}"
+							target="#{consultaClienteMB.clienteSelecionado}" />
+					</p:commandButton>
+
+				</p:column>
+
+
+			</p:dataTable>
+
+			<hr />
+			
+			<p:commandButton value="Excel" ajax="false"
+				style="margin-right: 10px">
+				<p:dataExporter type="xls" target="relatorio" fileName="clientes" />
+			</p:commandButton>
+			
+			<p:commandButton value="PDF" ajax="false"
+				style="margin-right: 10px">
+				<p:dataExporter type="pdf" target="relatorio" fileName="clientes" />
+			</p:commandButton>
+			
+			<p:commandButton value="XML" ajax="false"
+				style="margin-right: 10px">
+				<p:dataExporter type="xml" target="relatorio" fileName="clientes" />
+			</p:commandButton>
+			
+			<p:commandButton value="Imprimir" ajax="false"
+				style="margin-right: 10px">
+				<p:printer target="relatorio"/>
+			</p:commandButton>
+			
+			<p:commandButton value="JasperReport PDF" ajax="false" action="#{relatorioClienteMB.gerarPDF}"/>
+
+		</h:form>
+
+
+
+	</ui:define>
+
+
+
+</ui:composition>

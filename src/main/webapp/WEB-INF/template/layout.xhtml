@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999.xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+	<title><ui:insert name="titulo" />SystemEE 1.0</title>
+	<h:outputStylesheet library="biblioteca" name="estilo.css" />
+</h:head>
+
+<h:body>
+
+	<header style="background-color: #e6e0c4">
+		<h:graphicImage value="#{resource['biblioteca:header.png']}"></h:graphicImage>
+		<h:graphicImage
+			value="#{resources['biblioteca:header.png']}"/>
+
+		<div style="float: right; margin-right: 20px; margin-top: 8px; font-style:italic; color:#000002; font-weight:bold ">
+			Bem vindo #{usuario.nome}</div>
+	</header>
+
+	<div id="conteudo">
+		<h:form>
+
+			<p:menubar style="margin-top:-20px; margin-botton:20px">
+				<p:submenu label="Cadastrar">
+					<p:menuitem value="Cliente"
+						action="/cadastraCliente?faces-redirect=true" />
+					<p:menuitem value="Fornecedor" action="/cadastraFornecedor?faces-redirect=true" />
+					<p:menuitem value="Produto" action="/cadastraProduto?faces-redirect=true" />
+				</p:submenu>
+
+				<p:submenu label="Consultar">
+
+					<p:menuitem value="Cliente" action="/consultaCliente?faces-redirect=true" />
+					<p:menuitem value="Fornecedor" action="/consultaFornecedor?faces-redirect=true" />
+					<p:menuitem value="Produto" action="/consultaProduto?faces-redirect=true" />
+				</p:submenu>
+				
+				<p:submenu label="Vendas">
+					<p:menuitem value="Gráfico" action="/grafico?faces-redirect=true"/>
+				</p:submenu>
+
+				<p:submenu label="Sistema">
+					<p:menuitem value="Desenvolvedor" oncomplete="PF('about').show()"/>
+					<p:menuitem value="Sair" action="#{loginMB.logout}"/>
+				</p:submenu>
+
+			</p:menubar>
+		</h:form>
+		
+	<ui:insert name="corpo"/>
+	
+	</div>
+	
+	<footer style="margin-top:300px">
+		Sistema de Cadastro- versão EE - Amanda Mattauch - E-mail: amanda.mattauch8@gmail.com
+	</footer>
+	
+	<p:dialog header="Curriculo" widgetVar="about" modal="true" resizable="false" draggable="false" hideEffect="fold">
+	<p:outputLabel>Sistema desenvolvido por Amanda Mattauch</p:outputLabel> <br/><br/>
+	<p:outputLabel>Telefone: (42) 9 9992-1991 | (42) 3223-0240</p:outputLabel><br/><br/>
+	<p:outputLabel>E-mail: amanda.mattauch8@gmail.com</p:outputLabel><br/><br/>
+	<p:outputLabel>Endereço: Rua Visconde de Inhaúma, nº 130, Ronda - Ponta Grossa, Paraná. </p:outputLabel><br/><br/>
+	<h3>Formação</h3>
+	<p:outputLabel>Ensino Médio e Profissionalizante em Secretariado (2014 – 2017) - Colégio Estadual Regente Feijó </p:outputLabel><br/><br/>
+	<p:outputLabel>Bacharel em Ciências Contábeis (2018 – 2021) - UEPG </p:outputLabel><br/><br/>
+	<p:outputLabel>Java Fullstack Developer (2022) - Softgraf </p:outputLabel><br/><br/>
+	<p:outputLabel>Python (2022) - Softgraf </p:outputLabel><br/><br/>
+	<h3>Habilidades e Conhecimentos</h3>
+	<p:outputLabel> SQL (Mysql e Postgresql)</p:outputLabel><br/><br/>
+	<p:outputLabel>Desenvolvimento Web (HTML, CSS e JavaScript)</p:outputLabel><br/><br/>
+	<p:outputLabel>Tableau</p:outputLabel><br/><br/>
+	<p:outputLabel>Excel Avançado</p:outputLabel><br/><br/>
+	<h3>Experiências Profissionais</h3>
+	<p:outputLabel>A. M. Gomes Contabilidade (2019)</p:outputLabel><br/>
+	<p:outputLabel>Cargo: Estagiário</p:outputLabel><br/><br/>
+	<p:outputLabel>A. M. Gomes Contabilidade (2020 - 2022)</p:outputLabel><br/>
+	<p:outputLabel>Cargo: Assistente Contábil</p:outputLabel><br/><br/>
+	<p:outputLabel>Grupo MM – Mercadomóveis (2022)</p:outputLabel><br/>
+	<p:outputLabel>Cargo: Auxiliar de Crédito</p:outputLabel><br/><br/>
+	
+	
+	</p:dialog>
+	
+	
+
+
+</h:body>
+
+
+
+
+</html>

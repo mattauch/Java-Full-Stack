@@ -1,0 +1,50 @@
+@CHARSET "ISO-8859-1";
+
+header {
+	padding: 5px;
+	margin-bottom: 10px;
+	height: 150px;
+	background-color: #f2e98d;
+	color: #FFF;
+	box-shadow: 0px 2px 2px #CCC;
+}
+
+body {
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0px;
+	font-weight: normal;
+}
+
+footer {
+	border-top: 1px solid #CCC;
+	padding: 5px 8px;
+	margin-top: 20px;
+	margin-botton: 10px;
+}
+
+h1 {
+	font-size: 24px;
+	font-weight: 500;
+	padding: 0px;
+	margin-botton: 10px;
+}
+
+#conteudo {
+	padding: 0px 8px;
+}
+
+#telaLogin {
+	width: 260px;
+	margin: auto;
+	margin-top: 150px;
+}
+
+.gridLogin {
+	background-color: #f2f2f2;
+	border-radius: 8px;
+	border: 1px solid #ccc;
+	margin-top: 8px;
+	padding: 10px;
+	width: 100%
+}

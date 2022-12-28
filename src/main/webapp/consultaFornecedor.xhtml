@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/template/layout.xhtml"
+	xmlns="http://www.w3.org/1999.xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+	<f:metadata>
+		<f:viewAction action="#{consultaFornecedorMB.consultar}"></f:viewAction>
+	</f:metadata>
+
+	<ui:define name="corpo">
+
+		<h2>Consulta de Fornecedor</h2>
+		<h:form id="frm">
+
+			<p:messages showDetail="True" showSummary="true" autoUpdate="true"
+				closable="true" />
+
+			<p:dataTable id="relatorio" value="#{consultaFornecedorMB.fornecedores}"
+				var="fornecedor" border="1" callspacing="0" cellpadding="2"
+				paginator="true" rows="10" paginatorPosition="bottom"
+				resizableColumns="true">
+
+				<f:facet name="header">Fornecedores Cadastrados</f:facet>
+
+				<p:column style="width: 35px" sortBy="#{fornecedor.id}">
+					<f:facet name="header">ID</f:facet>
+					<h:outputText value="#{fornecedor.id}" />
+				</p:column>
+
+
+				<p:column style="width: 200px" sortBy="#{fornecedor.razaoSocial}">
+					<f:facet name="header">Razão Social</f:facet>
+					<h:outputText value="#{fornecedor.razaoSocial}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">CNPJ</f:facet>
+					<h:outputText value="#{fornecedor.cnpj}" />
+				</p:column>
+
+				<p:column style="width: 200px">
+					<f:facet name="header">E-mail</f:facet>
+					<h:outputText value="#{fornecedor.email}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">Telefone</f:facet>
+					<h:outputText value="#{fornecedor.fone}" />
+				</p:column>
+
+				<p:column style="width: 200px" exportable="false">
+					<f:facet name="header">Rua</f:facet>
+					<h:outputText value="#{fornecedor.rua}" />
+				</p:column>
+
+				<p:column style="width: 100px" exportable="false">
+					<f:facet name="header">Bairro</f:facet>
+					<h:outputText value="#{fornecedor.bairro}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">Cidade</f:facet>
+					<h:outputText value="#{fornecedor.cidade}" />
+				</p:column>
+
+				<p:column style="width: 100px">
+					<f:facet name="header">Estado</f:facet>
+					<h:outputText value="#{fornecedor.estado}" />
+				</p:column>
+
+				<p:column exportable="false">
+					<f:facet name="header">CEP</f:facet>
+					<h:outputText value="#{fornecedor.cep}" />
+				</p:column>
+
+				<p:column exportable="false">
+					<p:button icon="ui-icon-pencil" title="Editar"
+						outcome="/cadastraFornecedor">
+						<f:param name="id" value="#{fornecedor.id}" />
+					</p:button>
+
+					<p:commandButton icon="ui-icon-trash" title="Excluir"
+						action="#{consultaFornecedorMB.excluir}" process="@this"
+						update="@form">
+						<f:setPropertyActionListener value="#{fornecedor}"
+							target="#{consultaFornecedorMB.fornecedorSelecionado}" />
+					</p:commandButton>
+
+				</p:column>
+
+
+			</p:dataTable>
+
+			<hr />
+			
+			<p:commandButton value="Excel" ajax="false"
+				style="margin-right: 10px">
+				<p:dataExporter type="xls" target="relatorio" fileName="fornecedores" />
+			</p:commandButton>
+			
+			<p:commandButton value="PDF" ajax="false"
+				style="margin-right: 10px">
+				<p:dataExporter type="pdf" target="relatorio" fileName="fornecedores" />
+			</p:commandButton>
+			
+			<p:commandButton value="XML" ajax="false"
+				style="margin-right: 10px">
+				<p:dataExporter type="xml" target="relatorio" fileName="fornecedores" />
+			</p:commandButton>
+			
+			<p:commandButton value="Imprimir" ajax="false"
+				style="margin-right: 10px">
+				<p:printer target="relatorio"/>
+			</p:commandButton>
+			
+
+		</h:form>
+
+
+
+	</ui:define>
+
+
+
+</ui:composition>
